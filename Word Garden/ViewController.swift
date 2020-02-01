@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var flowerImageView: UIImageView!
     
     override func viewDidLoad() {
+        guessLetterButton.isEnabled = false
+        playAgainButton.isHidden = true
         super.viewDidLoad()
         
     }
@@ -37,6 +39,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func guessedLetterFieldChanged(_ sender: UITextField) {
+        if let letterGuessed = guessedLetterField.text?.last{
+            guessedLetterField.text = "\(letterGuessed)"
+            guessLetterButton.isEnabled = true
+        } else {
+            guessLetterButton.isEnabled = false
+            
+        }
+        
         
     }
     
